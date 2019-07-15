@@ -1,0 +1,52 @@
+{
+  "name": "lyra-neutrino",
+  "version": "1.0.0",
+  "description": "A music player app",
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "neutrinojs ./dist/renderer",
+    "webpack": "webpack --progress --watch",
+    "dist": "webpack -p --progress && neutrino-builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LenKagamine/lyra-neutrino.git"
+  },
+  "author": "Michael Kim <micklepickle98@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LenKagamine/lyra-neutrino/issues"
+  },
+  "homepage": "https://github.com/LenKagamine/lyra-neutrino#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/preset-env": "^7.5.2",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.0.0",
+    "eslint": "^6.0.1",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-flowtype": "^3.11.1",
+    "eslint-plugin-react": "^7.14.2",
+    "file-loader": "^4.0.0",
+    "flow-bin": "^0.102.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "neutrinojs": "file:../neutrino",
+    "neutrino-builder": "file:../neutrino-builder",
+    "node-sass": "^4.12.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.4",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "terser-webpack-plugin": "^1.3.0",
+    "url-loader": "^2.0.1",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5"
+  }
+}

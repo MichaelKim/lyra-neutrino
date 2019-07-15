@@ -1,0 +1,115 @@
+@import './variables.scss';
+
+.song-row {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  line-height: 1.5em;
+  user-select: none;
+
+  &:not(:first-child) {
+    border-top: 1px solid $border-color;
+  }
+
+  &:hover {
+    background-color: $light-color;
+  }
+
+  div {
+    padding: 5px 0;
+  }
+
+  .song-row-edit {
+    padding-bottom: 4px;
+  }
+
+  /* Spacing */
+  & > div:first-child {
+    width: 5%;
+  }
+
+  /* Title Column */
+  & > div:nth-child(2) {
+    width: 40%;
+  }
+
+  /* Artist Column */
+  & > div:nth-child(3) {
+    width: 30%;
+  }
+
+  /* Song Duration Column */
+  & > div:nth-child(4) {
+    width: 10%;
+  }
+
+  /* Date Added Column */
+  & > div:nth-child(5) {
+    width: 15%;
+    display: inline-flex; // Align right
+    flex-direction: row-reverse;
+  }
+
+  .is-playing {
+    position: relative;
+
+    div {
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+
+      &:nth-child(1) {
+        background-image: url('../icons/volume-mute.svg');
+        left: -8px;
+        opacity: 1;
+      }
+
+      &:nth-child(2) {
+        background-image: url('../icons/volume-low.svg');
+        animation: blink infinite 1.5s;
+        animation-delay: 0.5s;
+        left: -4px;
+      }
+
+      &:nth-child(3) {
+        background-image: url('../icons/volume-high.svg');
+        animation: blink infinite 1.5s;
+        animation-delay: 0.75s;
+      }
+    }
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  input {
+    background: none;
+    color: $text-color;
+    border: none;
+    border-bottom: 1px solid $underline-color;
+    font-size: 16px;
+    padding: 0;
+    outline: none;
+    width: 90%;
+  }
+}
+
+.song-missing {
+  color: $text-dark-color;
+  text-decoration: line-through;
+  cursor: default;
+}

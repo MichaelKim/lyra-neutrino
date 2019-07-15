@@ -1,0 +1,61 @@
+@import './variables.scss';
+
+.sidebar {
+  width: 100px;
+  background-color: $sidebar-color;
+  color: $text-color;
+  padding: 20px;
+
+  .sidebar-title {
+    margin-top: 0;
+  }
+
+  .sidebar-link {
+    cursor: pointer;
+  }
+
+  .sidebar-link:hover,
+  .sidebar-selected {
+    color: $text-light-color;
+    text-shadow: 0 0 $text-light-color;
+  }
+
+  .sidebar-del:hover .del-btn {
+    display: block;
+  }
+
+  .sidebar-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+
+    p {
+      font-size: 16px;
+      flex: 1;
+    }
+
+    button {
+      padding: 0;
+      width: 12px;
+      height: 12px;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .add-btn {
+      background-image: url('../icons/add.svg');
+    }
+
+    .del-btn {
+      background-image: url('../icons/clear.svg');
+      filter: invert(1);
+      display: none;
+
+      &:hover {
+        filter: none;
+      }
+    }
+  }
+}

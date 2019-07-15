@@ -1,0 +1,27 @@
+/* Volume Controls */
+
+.volume-btn {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+}
+
+.volume-none {
+  background-image: url('../icons/volume-off.svg');
+}
+
+.volume-low {
+  background-image: url('../icons/volume-low.svg');
+}
+
+.volume-high {
+  background-image: url('../icons/volume-high.svg');
+}
+
+.volume-bar {
+  display: inline-block;
+  width: 120px;
+}

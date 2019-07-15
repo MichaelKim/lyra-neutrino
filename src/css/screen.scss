@@ -1,0 +1,55 @@
+@import './variables.scss';
+
+.screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient($screen-color 5%, $playback-color);
+  color: $text-color;
+  padding: 20px;
+  font-size: 16px;
+
+  .song-table {
+    width: 100%;
+    word-wrap: break-word;
+    overflow: auto;
+  }
+
+  .song-row-header {
+    margin-right: 15px;
+  }
+
+  /* Local Source Song Items */
+  .sources-song-item {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .sources-song-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sort-icon-up,
+  .sort-icon-down {
+    width: 15px;
+    height: 15px;
+    position: relative;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+  }
+
+  .sort-icon-up {
+    top: 1px;
+    background-image: url('../icons/sort-up.svg');
+  }
+
+  .sort-icon-down {
+    top: 4px;
+    background-image: url('../icons/sort-down.svg');
+  }
+}
