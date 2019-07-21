@@ -58,6 +58,13 @@ class PlaybackBar extends React.Component<Props, State> {
     this.setState({
       currentTime: e.currentTarget.currentTime
     });
+
+    if (
+      this.props.currSong != null &&
+      e.currentTarget.currentTime > this.props.currSong.duration
+    ) {
+      this._onEnded();
+    }
   };
 
   _onSeek = (seek: number) => {
@@ -149,10 +156,7 @@ class PlaybackBar extends React.Component<Props, State> {
 
   render() {
     const { currSong } = this.props;
-    const max =
-      this._audio.current && this._audio.current.duration
-        ? this._audio.current.duration
-        : 0;
+    const max = currSong != null ? currSong.duration : 0;
 
     const currTime = formatDuration(this.state.currentTime);
     const maxTime = formatDuration(max);
