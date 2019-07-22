@@ -32,7 +32,7 @@ const rendererConfig = {
       },
       {
         test: /\.jsx?$/,
-        exclude: /node_modules|neutrino\/lib/,
+        exclude: /node_modules|neutrino[\\/]lib/,
         use: [
           'eslint-loader',
           {
