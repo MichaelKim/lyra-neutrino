@@ -4,7 +4,7 @@
   "description": "A music player app",
   "main": "src/main.js",
   "scripts": {
-    "dev": "neutrinojs ./dist/renderer",
+    "dev": "neutrinojs ./dist/dev",
     "webpack": "webpack --progress --watch",
     "dist": "webpack -p --progress && neutrino-builder"
   },

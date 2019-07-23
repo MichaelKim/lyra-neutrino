@@ -3,8 +3,9 @@ const path = require('path');
 const mainConfig = {
   entry: './src/main/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist/main'),
-    filename: 'main.js'
+    path: path.resolve(__dirname, 'dist/dev'),
+    filename: 'main.js',
+    library: 'main'
   },
   module: {
     rules: [
@@ -19,14 +20,20 @@ const mainConfig = {
               presets: [
                 '@babel/preset-react',
                 '@babel/preset-flow',
-                [
-                  '@babel/preset-env',
-                  {
-                    targets: '>1%, not ie 11, not op_mini all'
-                  }
-                ]
+                '@babel/preset-env'
               ],
               plugins: ['@babel/plugin-proposal-class-properties']
+            }
+          }
+        ]
+      },
+      {
+        test: /neutrino[\\/]lib[\\/].+\.jsx?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
             }
           }
         ]

@@ -11,7 +11,8 @@ const baseConfig = {
     extensions: ['.js', '.jsx']
   },
   node: {
-    fs: 'empty'
+    fs: 'empty',
+    __dirname: false
   },
   stats: {
     colors: true
