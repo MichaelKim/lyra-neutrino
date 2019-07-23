@@ -4,8 +4,8 @@
   "description": "A music player app",
   "main": "src/main.js",
   "scripts": {
-    "dev": "neutrinojs ./dist/dev",
-    "webpack": "webpack --progress --watch",
+    "dev": "neutrinojs ./dist/main",
+    "webpack": "webpack-dev-server --progress --output-path=./dist/renderer",
     "dist": "webpack -p --progress && neutrino-builder"
   },
   "repository": {
@@ -46,6 +46,7 @@
     "terser-webpack-plugin": "^1.3.0",
     "url-loader": "^2.0.1",
     "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5"
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
   }
 }

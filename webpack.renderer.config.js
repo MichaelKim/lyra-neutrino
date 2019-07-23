@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const rendererConfig = {
   entry: './src/renderer/index.jsx',
   output: {
-    path: path.resolve(__dirname, 'dist/dev'),
+    path: path.resolve(__dirname, 'dist/renderer'),
     filename: 'renderer.js'
   },
   module: {

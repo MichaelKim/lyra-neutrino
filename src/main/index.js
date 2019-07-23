@@ -11,7 +11,11 @@ function createWindow() {
     title: 'Lyra Music Player'
   });
 
-  win.loadURL('file://' + __dirname + '/index.html');
+  if (process.env.NODE_ENV !== 'production') {
+    win.loadURL('http://localhost:8080');
+  } else {
+    win.loadURL('file://' + __dirname + '/index.html');
+  }
 
   win.on('closed', () => {
     win = null;

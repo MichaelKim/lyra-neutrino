@@ -3,7 +3,7 @@ const path = require('path');
 const mainConfig = {
   entry: './src/main/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist/dev'),
+    path: path.resolve(__dirname, 'dist/main'),
     filename: 'main.js',
     library: 'main'
   },
