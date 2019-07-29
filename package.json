@@ -4,8 +4,10 @@
   "description": "A music player app",
   "main": "src/main.js",
   "scripts": {
-    "dev": "neutrinojs ./dist/main",
-    "webpack": "webpack-dev-server --progress --output-path=./dist/renderer",
+    "dev": "webpack --progress && npm-run-all -p serve webpack neutrino",
+    "serve": "http-server -c-1 --cors ./dist/renderer/",
+    "webpack": "webpack --progress --watch",
+    "neutrino": "neutrinojs ./dist/main",
     "dist": "webpack -p --progress && neutrino-builder"
   },
   "repository": {
@@ -34,9 +36,11 @@
     "file-loader": "^4.0.0",
     "flow-bin": "^0.102.0",
     "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.11.1",
     "mini-css-extract-plugin": "^0.7.0",
     "neutrinojs": "file:../neutrino",
     "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
@@ -46,7 +50,6 @@
     "terser-webpack-plugin": "^1.3.0",
     "url-loader": "^2.0.1",
     "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-cli": "^3.3.5"
   }
 }
