@@ -1,17 +1,22 @@
 import { app, BrowserWindow } from 'neutrinojs';
 
-var win = null;
+let win = null;
+
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 function createWindow() {
   app.log('creating window');
 
-  win = new BrowserWindow({
-    width: 1000,
-    height: 800,
-    title: 'Lyra Music Player'
-  });
+  const options = {
+    width: 1280,
+    height: 720,
+    title: 'Lyra Music Player',
+    backgroundColor: '#333'
+  };
 
-  if (process.env.NODE_ENV !== 'production') {
+  win = new BrowserWindow(options);
+
+  if (isDevelopment) {
     win.loadURL('http://localhost:8080');
   } else {
     win.loadURL('file://' + __dirname + '/index.html');
@@ -23,5 +28,17 @@ function createWindow() {
 }
 
 app.on('ready', createWindow);
+
+// app.on('window-all-closed', () => {
+//   if (process.platform !== 'darwin') {
+//     app.quit();
+//   }
+// });
+
+// app.on('activate', () => {
+//   if (win === null) {
+//     createWindow();
+//   }
+// });
 
 export default app;
