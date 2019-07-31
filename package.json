@@ -4,8 +4,9 @@
   "description": "A music player app",
   "main": "src/main.js",
   "scripts": {
-    "dev": "webpack --progress && npm-run-all -p serve webpack neutrino",
+    "dev": "webpack --progress && npm-run-all -p server serve webpack neutrino",
     "serve": "http-server -c-1 --cors ./dist/renderer/",
+    "server": "nodemon server/index.js",
     "webpack": "webpack --progress --watch",
     "neutrino": "neutrinojs ./dist/main",
     "dist": "webpack -p --progress && neutrino-builder"
@@ -20,6 +21,14 @@
     "url": "https://github.com/LenKagamine/lyra-neutrino/issues"
   },
   "homepage": "https://github.com/LenKagamine/lyra-neutrino#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "googleapis": "^41.0.0",
+    "he": "^1.2.0",
+    "ytdl-core": "^0.29.4"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.0",
     "@babel/plugin-proposal-class-properties": "^7.5.0",
@@ -40,6 +49,7 @@
     "mini-css-extract-plugin": "^0.7.0",
     "neutrinojs": "file:../neutrino",
     "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
