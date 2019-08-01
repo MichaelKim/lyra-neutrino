@@ -25,7 +25,7 @@ export default function Search(props: Props) {
 
   return (
     <div className='search-box'>
-      <img />
+      <div className='search-icon' />
       <input
         type='text'
         placeholder='Search...'

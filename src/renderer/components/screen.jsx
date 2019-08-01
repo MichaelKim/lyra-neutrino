@@ -45,10 +45,10 @@ export default function Screen() {
   }
 
   const columns = [
-    { enum: 'TITLE', name: 'Title' },
-    { enum: 'ARTIST', name: 'Artist' },
-    { enum: 'DURATION', name: 'Duration' },
-    { enum: 'DATE', name: 'Date Added' }
+    { enum: 'TITLE', name: 'title' },
+    { enum: 'ARTIST', name: 'artist' },
+    { enum: 'DURATION', name: 'duration' },
+    { enum: 'DATE', name: 'date added' }
   ];
 
   const filtered = search

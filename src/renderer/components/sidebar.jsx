@@ -91,20 +91,20 @@ export default function Sidebar() {
       <h3 className='sidebar-title'>Lyra Player</h3>
 
       <div className='sidebar-section'>
-        <p className='label'>Library</p>
+        <p className='label'>library</p>
       </div>
       {items.map(item =>
         renderItem(item.enum, item.name, currScreen == item.enum)
       )}
 
       <div className='sidebar-section'>
-        <p className='label'>YouTube</p>
+        <p className='label'>youtube</p>
       </div>
       {renderItem('yt-search', 'Search', currScreen === 'yt-search')}
       {renderItem('yt-playing', 'Playing', currScreen === 'yt-playing')}
 
       <div className='sidebar-section'>
-        <p className='label'>Playlists</p>
+        <p className='label'>playlists</p>
         <button className='add-btn' onClick={addPlaylist} />
       </div>
       {editing && (

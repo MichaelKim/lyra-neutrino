@@ -60,7 +60,7 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-variant-caps: all-small-caps;
+  font-variant: small-caps;
   color: $text-dark-color;
   line-height: 1em;
 }
@@ -118,8 +118,9 @@ input[type='text'] {
   flex-direction: row;
   align-items: center;
 
-  img {
-    content: url('../icons/search.svg');
+  .search-icon {
+    background-image: url('../icons/search.svg');
+    background-size: 15px;
     width: 15px;
     height: 15px;
     margin-right: 5px;
