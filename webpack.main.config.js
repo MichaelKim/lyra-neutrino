@@ -26,17 +26,6 @@ const mainConfig = {
             }
           }
         ]
-      },
-      {
-        test: /neutrino[\\/]lib[\\/].+\.jsx?$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env']
-            }
-          }
-        ]
       }
     ]
   }

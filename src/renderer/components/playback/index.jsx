@@ -90,6 +90,8 @@ class PlaybackBar extends React.Component<Props, State> {
       } else {
         this._audio.current.pause();
       }
+      // Component doesn't update on ref change
+      this.forceUpdate();
     }
   };
 
