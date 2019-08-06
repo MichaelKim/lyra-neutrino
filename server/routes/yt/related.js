@@ -15,8 +15,7 @@ router.get('/', async (req, res) => {
     related_videos.filter(v => v.id).map(v => ytdl.getInfo(v.id))
   );
   const videos = infos.map(v => ({
-    // id: v.video_id,
-    id: v.video_url.substr(32),
+    id: v.video_id,
     title: v.title,
     artist: v.author.name,
     duration: v.length_seconds,
