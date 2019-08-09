@@ -17,7 +17,7 @@ function createWindow() {
   win = new BrowserWindow(options);
 
   if (isDevelopment) {
-    win.loadURL('http://localhost:8080');
+    win.loadURL('http://localhost:8080/index.html');
   } else {
     win.loadURL('file://' + __dirname + '/index.html');
   }
