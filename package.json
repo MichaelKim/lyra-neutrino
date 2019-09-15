@@ -27,7 +27,7 @@
     "express": "^4.17.1",
     "googleapis": "^41.0.0",
     "he": "^1.2.0",
-    "ytdl-core": "^0.29.5"
+    "ytdl-core": "^0.29.7"
   },
   "devDependencies": {
     "@babel/core": "^7.5.0",
