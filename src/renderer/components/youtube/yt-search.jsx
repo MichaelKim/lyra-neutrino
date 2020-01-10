@@ -18,7 +18,7 @@ type Props = {|
 
 export default function YtSearch(props: Props) {
   const [searching, setSearching] = React.useState(false);
-  const [videos, setVideos] = React.useState([]);
+  const [videos, setVideos] = React.useState<Array<VideoSong>>([]);
 
   const dispatch = useDispatch();
   const showYtPlaying = () =>
