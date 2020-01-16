@@ -1,34 +1,19 @@
-const path = require('path');
-
-const mainConfig = {
-  entry: './src/main/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist/main'),
-    filename: 'main.js',
-    library: 'main'
-  },
-  module: {
-    rules: [
+module.exports = config => {
+  // TODO: eslint error when removing neutrino/lib
+  config.module.rules.push({
+    test: /\.js$/,
+    exclude: /node_modules|neutrino[\\/]lib/,
+    use: [
+      'eslint-loader',
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules|neutrino[\\/]lib/,
-        use: [
-          'eslint-loader',
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                '@babel/preset-react',
-                '@babel/preset-flow',
-                '@babel/preset-env'
-              ],
-              plugins: ['@babel/plugin-proposal-class-properties']
-            }
-          }
-        ]
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+          plugins: ['@babel/plugin-proposal-class-properties']
+        }
       }
     ]
-  }
-};
+  });
 
-module.exports = mainConfig;
+  return config;
+};

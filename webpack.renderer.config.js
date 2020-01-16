@@ -1,70 +1,68 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const rendererConfig = {
-  entry: './src/renderer/index.jsx',
-  output: {
-    path: path.resolve(__dirname, 'dist/renderer'),
-    filename: 'renderer.js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      { test: /\.css$/, use: [{ loader: MiniCssExtractPlugin.loader }] },
-      {
-        test: /\.ttf$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.svg$/,
-        use: ['url-loader']
-      },
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules|neutrino[\\/]lib/,
-        use: [
-          'eslint-loader',
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                '@babel/preset-react',
-                '@babel/preset-flow',
-                [
-                  '@babel/preset-env',
-                  {
-                    targets: '>1%, not ie 11, not op_mini all'
-                  }
-                ]
-              ],
-              plugins: ['@babel/plugin-proposal-class-properties']
-            }
-          }
-        ]
-      }
-    ]
-  },
-  plugins: [
+module.exports = config => {
+  const production = config.mode === 'production';
+  const LYRA_URL = production
+    ? 'https://lyra.michael.kim'
+    : 'http://localhost:5000';
+
+  config.plugins.push(
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-      chunks: ['renderer']
+      template: './src/index.html'
     }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css'
+    new webpack.DefinePlugin({
+      'process.env.LYRA_URL': JSON.stringify(LYRA_URL),
+      'process.env.LYRA_USE_API': JSON.stringify(production)
     })
-  ]
-};
+  );
+  config.module.rules.push(
+    {
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader']
+    },
+    { test: /\.css$/, use: [{ loader: MiniCssExtractPlugin.loader }] },
+    {
+      test: /\.ttf$/,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
+          }
+        }
+      ]
+    },
+    {
+      test: /\.svg$/,
+      use: ['url-loader']
+    },
+    {
+      test: /\.jsx?$/,
+      // TODO: eslint error when removing neutrino/lib
+      exclude: /node_modules|neutrino[\\/]lib/,
+      use: [
+        'eslint-loader',
+        {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-react',
+              '@babel/preset-flow',
+              [
+                '@babel/preset-env',
+                {
+                  targets: '>1%, not ie 11, not op_mini all'
+                }
+              ]
+            ],
+            plugins: ['@babel/plugin-proposal-class-properties']
+          }
+        }
+      ]
+    }
+  );
 
-module.exports = rendererConfig;
+  return config;
+};

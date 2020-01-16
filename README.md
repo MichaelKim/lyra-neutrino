@@ -1,5 +1,7 @@
 # Lyra Neutrino
 
+Note: this repo won't be updated as [the original repository](https://github.com/LenKagamine/lyra) can now build with Neutrino!
+
 A port of my music player [Lyra](https://github.com/LenKagamine/lyra), written using [Neutrino](https://github.com/LenKagamine/neutrino).
 
 This project acts as a proof of concept for Neutrino, and allows me to work on Neutrino using a real application. As I continue adding features to Neutrino, I can steadily bring this up to state of Lyra (Electron).
@@ -47,10 +49,11 @@ This will do four things:
 To build the (unpacked) production version,
 
 ```
-npm run dist
+npm run build
+npm run pack
 ```
 
-Host the Express server located in `server/` to `localhost:8080`, and run the executable in `dist/lyra-neutrino-unpacked/lyra-neutrino(.exe)`.
+Host the Express server located at [lyra-server](https://github.com/LenKagamine/lyra-server), and run the executable in `dist/lyra-neutrino-unpacked/lyra-neutrino(.exe)`.
 
 ## Issues
 

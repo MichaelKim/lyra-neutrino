@@ -1,5 +1,6 @@
 dist/
 node_modules/
+.vscode/
 state.json
 .DS_Store
 .env
