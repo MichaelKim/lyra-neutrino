@@ -1,6 +1,6 @@
 # Lyra Neutrino
 
-Note: this repo won't be updated as [the original repository](https://github.com/LenKagamine/lyra) can now build with Neutrino!
+> Note: this repo is **deprecated**, and is left as a standalone proof of concept for Neutrino. [The original project](https://github.com/LenKagamine/lyra) can now be built with Neutrino, and future development will worked on there.
 
 A port of my music player [Lyra](https://github.com/LenKagamine/lyra), written using [Neutrino](https://github.com/LenKagamine/neutrino).
 
@@ -39,13 +39,6 @@ npm install
 npm run dev
 ```
 
-This will do four things:
-
-1. Start the Express server
-2. Build everything using Webpack
-3. Serve the web (renderer) files (like Electron)
-4. Start Neutrino
-
 To build the (unpacked) production version,
 
 ```
@@ -53,7 +46,7 @@ npm run build
 npm run pack
 ```
 
-Host the Express server located at [lyra-server](https://github.com/LenKagamine/lyra-server), and run the executable in `dist/lyra-neutrino-unpacked/lyra-neutrino(.exe)`.
+This project uses `neutrino-webpack` and `neutrino-builder` for builds. For more information, see the [Neutrino docs](https://github.com/LenKagamine/neutrino#cli).
 
 ## Issues
 
